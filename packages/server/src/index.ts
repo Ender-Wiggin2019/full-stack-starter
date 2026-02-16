@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import { serve } from '@hono/node-server';
 import { db } from './db';
 import { messages } from './db/schema';
 import { createMessageSchema, type Message } from 'common';
@@ -28,5 +29,7 @@ app.post('/api/messages', async (c) => {
 
 const port = 3000;
 console.log(`Server running on http://localhost:${port}`);
-
-export default app;
+serve({
+  fetch: app.fetch,
+  port,
+});

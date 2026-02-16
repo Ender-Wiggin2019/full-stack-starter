@@ -14,6 +14,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@hono/node-server": "^1.19.9",
     "better-sqlite3": "^11.8.1",
     "common": "workspace:*",
     "drizzle-orm": "^0.39.3",
