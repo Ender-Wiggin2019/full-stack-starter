@@ -12,11 +12,13 @@
     "dev:client": "pnpm --filter client dev",
     "dev:server": "pnpm --filter server dev",
     "build": "pnpm --filter common build && pnpm --filter server build && pnpm --filter client build",
+    "build:pages": "pnpm --filter common build && pnpm --filter client build",
     "db:generate": "pnpm --filter server db:generate",
     "db:migrate": "pnpm --filter server db:migrate",
     "db:push": "pnpm --filter server db:push",
     "lint": "pnpm -r lint",
-    "lint:fix": "pnpm -r lint:fix"
+    "lint:fix": "pnpm -r lint:fix",
+    "pages:deploy": "wrangler pages deploy packages/client/dist"
   },
   "pnpm": {
     "onlyBuiltDependencies": ["better-sqlite3", "esbuild", "node-gyp"]
@@ -24,6 +26,7 @@
   "devDependencies": {
     "concurrently": "^9.1.2",
     "eslint": "^9.39.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "wrangler": "^4.4.0"
   }
 }
